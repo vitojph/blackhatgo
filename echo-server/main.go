@@ -14,7 +14,7 @@ func echo(conn net.Conn) {
 
 	for {
 		size, err := conn.Read(buf[0:])
-		if err != io.EOF {
+		if err == io.EOF {
 			log.Println("Client disconnected")
 			break
 		}
